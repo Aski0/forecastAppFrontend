@@ -2,8 +2,8 @@ import axios from 'axios';
 import type { ForecastDay, SummaryData } from '../types/weather';
 
 //adres backendu
-const API_BASE_URL = "https://forecastapp-mqbg.onrender.com/api/v1/weather";
-//const API_BASE_URL = "http://localhost:8080/api/v1/weather";
+//const API_BASE_URL = "https://forecastapp-mqbg.onrender.com/api/v1/weather";
+const API_BASE_URL = "http://localhost:8080/api/v1/weather";
 
 // dane mockowane do sprawdzenia bez połączenia z backendem
 const MOCKED_FORECAST_DATA: ForecastDay[] = [{"date":"2025-06-24","weatherCode":3,"minTemperature":14.6,"maxTemperature":21.8,"generatedEnergyKwh":8.38},{"date":"2025-06-25","weatherCode":53,"minTemperature":15.3,"maxTemperature":24.5,"generatedEnergyKwh":8.38},{"date":"2025-06-26","weatherCode":3,"minTemperature":13.8,"maxTemperature":25.4,"generatedEnergyKwh":8.37},{"date":"2025-06-27","weatherCode":55,"minTemperature":14.8,"maxTemperature":22.1,"generatedEnergyKwh":8.37},{"date":"2025-06-28","weatherCode":2,"minTemperature":13.5,"maxTemperature":23.0,"generatedEnergyKwh":8.36},{"date":"2025-06-29","weatherCode":2,"minTemperature":17.0,"maxTemperature":23.9,"generatedEnergyKwh":8.36},{"date":"2025-06-30","weatherCode":1,"minTemperature":14.4,"maxTemperature":23.2,"generatedEnergyKwh":8.35}];

@@ -8,6 +8,7 @@ import { LatLng } from 'leaflet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import './App.scss';
+import CloudSunIcon from './components/CloudSunIcon/CloudSunIcon';
 
 function App() {
   //stany aplikacji
@@ -79,7 +80,7 @@ function App() {
           {/* lewa kolumna: tytuł, opis, przycisk lokalizacji */}
           <div className="left-column">
             <div className="title-container">
-              <FontAwesomeIcon icon={faCloudSun} className="title-icon" />
+              <CloudSunIcon></CloudSunIcon>
               <h2>Prognoza Pogody</h2>
             </div>
             <p className="description">
