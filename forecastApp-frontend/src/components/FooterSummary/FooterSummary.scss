@@ -1,0 +1,82 @@
+@import '../../styles/variables';
+.footer-summary {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: $secondary-bg;
+  box-shadow: $box-shadow;
+  border-radius: 8px;
+  color: $primary-text;
+  text-align: center;
+  h3{
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+// Ekstremalne Temperatury | Średnie Ciśnienie | Średnie Nasłonecznienie
+  .summary-item {
+    text-align: center;
+    h3 {
+      margin-bottom: 0.5rem;
+      color: $accent-color;
+      font-size: 1.1rem;
+    }
+    p {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
+// Tydzień z opadami / bez opadów
+  .summary-comment {
+    text-align: center;
+    border-top: 1px solid $border-color;
+    padding-top: 1rem;
+    
+    
+    h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-style: italic;
+      color: $secondary-text;
+      margin: 0;
+    }
+  }
+  // Dodatkowe informacje o autorze strony =)
+  .author-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: $secondary-text;
+}
+
+.author-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.author-icon {
+  color: $accent-color;
+}
+
+.author-info a {
+  color: inherit; 
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+}

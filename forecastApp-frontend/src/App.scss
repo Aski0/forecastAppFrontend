@@ -1,0 +1,123 @@
+@import './styles/variables';
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  background-color: $primary-bg;
+  color: $primary-text;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-bottom: 0;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.layout-grid {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+//kolumna z tytułem i przyciskiem do lokalizacji
+.left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.description {
+  color: $secondary-text;
+  margin-bottom: 1.5rem;
+}
+//kolumna z mapą
+.right-column {
+  flex: 2;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.title-icon {
+  font-size: 5rem; // Zwiększamy rozmiar ikony
+  color: $accent-color;
+  margin-bottom: 0.5rem;
+}
+
+.location-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: $accent-color;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  width: 100%;
+  max-width: 300px;
+
+  &:hover {
+    background-color: darken($accent-color, 10%);
+  }
+}
+//style ładowań oraz błędów
+.loading, .error {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 5rem;
+  color: $secondary-text;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+//kontener ze stopką
+.footer-summary {
+  width: 100vw;
+  margin-left: calc(-1 * (100vw - 100%) / 2);
+  background-color: $footer-bg;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+//prosta responsywność
+@media (max-width: 992px) {
+  .layout-grid {
+    flex-direction: column;
+  }
+
+  .left-column {
+    align-items: center;
+    text-align: center;
+  }
+
+  .right-column {
+    flex: 1;
+  }
+}

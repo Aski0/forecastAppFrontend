@@ -1,0 +1,83 @@
+@import '../../styles/variables';
+//style dla tablei z pogodą na 7 dni
+.weather-table-container {
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.weather-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: $secondary-bg;
+  box-shadow: $box-shadow;
+  border-radius: 8px;
+  overflow: hidden;
+
+  th, td {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid $border-color;
+    vertical-align: middle;
+  }
+
+  th {
+    background-color: $accent-color;
+    color: white;
+    font-weight: 600;
+  }
+  
+  tbody tr:last-child td {
+      border-bottom: none;
+  }
+//etykiety Pogoda , Temperatura Max/Min, Energia Słoneczna
+  .row-header {
+    text-align: left;
+    padding-left: 1rem;
+    font-weight: 600;
+    color: $primary-text;
+    background-color: #f8f9fa;
+    white-space: nowrap; // Zapobiega łamaniu tekstu etykiety
+  }
+  
+  //pusty prawy górny róg tabeli
+ .corner-header {
+    background-color: transparent;
+    border-bottom: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+  }
+
+  .weather-icon {
+    color: $accent-color;
+  }
+
+  .temp-max {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $primary-text;
+  }
+  
+  .temp-min {
+    display: block;
+    font-size: 1rem;
+    color: $secondary-text;
+  }
+  
+  .energy-value {
+      font-weight: 500;
+  }
+  
+}
+
+// Prosta responsywność
+@media (max-width: $breakpoint-mobile) {
+  .weather-table {
+    th, td {
+      padding: 0.8rem 0.2rem;
+      font-size: 0.8rem;
+    }
+    .weather-icon svg {
+        font-size: 2em;
+    }
+  }
+}
