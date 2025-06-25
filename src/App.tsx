@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getForecast, getSummary } from './services/weatherApi';
 import type { ForecastDay, SummaryData } from './types/weather';
 import WeatherTable from './components/WeatherTable/WeatherTable';

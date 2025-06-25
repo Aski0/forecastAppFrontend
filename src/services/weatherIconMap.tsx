@@ -1,7 +1,7 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { 
   faSun, faCloudSun, faCloud, faCloudShowersHeavy, faSmog, 
-  faCloudRain, faPooStorm, faSnowflake, faQuestionCircle 
+  faCloudRain, faPooStorm, faQuestionCircle 
 } from '@fortawesome/free-solid-svg-icons';
 
 // mapa kodów WMO na ikony
