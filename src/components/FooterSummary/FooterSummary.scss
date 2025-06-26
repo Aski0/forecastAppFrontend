@@ -2,10 +2,10 @@
 .footer-summary {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: $secondary-bg;
+  background-color: var(--secondary-bg);
   box-shadow: $box-shadow;
   border-radius: 8px;
-  color: $primary-text;
+  color: var(--primary-text);
   text-align: center;
   h3{
         margin-block-start: 0.5em;
@@ -34,7 +34,7 @@
 // Tydzień z opadami / bez opadów
   .summary-comment {
     text-align: center;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid var(--border-color);
     padding-top: 1rem;
     
     
@@ -44,7 +44,7 @@
 
     p {
       font-style: italic;
-      color: $secondary-text;
+      color: var(--secondary-text);
       margin: 0;
     }
   }
@@ -58,7 +58,7 @@
   padding-top: 1.5rem;
   margin-top: 1.5rem;
   font-size: 0.9rem;
-  color: $secondary-text;
+  color: var(--secondary-text);
 }
 
 .author-item {

@@ -6,9 +6,10 @@ import FooterSummary from './components/FooterSummary/FooterSummary';
 import LocationMap from './components/LocationMap/LocationMap';
 import { LatLng } from 'leaflet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudSun, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faMoon, faSun  } from '@fortawesome/free-solid-svg-icons';
 import './App.scss';
 import CloudSunIcon from './components/CloudSunIcon/CloudSunIcon';
+import CloudMoonIcon from './components/CloudMoonIcon/CloudMoonIcon';
 
 function App() {
   //stany aplikacji
@@ -17,6 +18,22 @@ function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [location, setLocation] = useState<{ lat: number; lon: number } | null>(null);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  // Load theme from localStorage on mount
+  useEffect(() => {
+    const savedTheme = (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
+
+  // Toggle theme and save to localStorage
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+  };
 
   //próba pobrania lokalizacji użytkownika
   const fetchUserLocation = async () => {
@@ -80,7 +97,7 @@ function App() {
           {/* lewa kolumna: tytuł, opis, przycisk lokalizacji */}
           <div className="left-column">
             <div className="title-container">
-              <CloudSunIcon></CloudSunIcon>
+              {theme === 'light' ? <CloudSunIcon /> : <CloudMoonIcon />}
               <h2>Prognoza Pogody</h2>
             </div>
             <p className="description">
@@ -90,11 +107,15 @@ function App() {
               <FontAwesomeIcon icon={faLocationDot} />
               <span>Użyj mojej lokalizacji</span>
             </button>
+            <button className="theme-toggle" onClick={toggleTheme}>
+              <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} />
+            </button>
           </div>
 
           {/* prawa kolumna z mapą */}
           <div className="right-column">
-            <LocationMap selectedPosition={location} onLocationSelect={handleLocationSelect} />
+            <LocationMap selectedPosition={location} onLocationSelect={handleLocationSelect} theme={theme} />
+            
           </div>
 
         </div> 

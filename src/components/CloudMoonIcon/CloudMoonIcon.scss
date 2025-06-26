@@ -1,0 +1,132 @@
+$color-moon-core: #e6e6fa;
+$color-moon-glow: #b0c4de;
+$color-cloud: #ffffff;
+$shadow-cloud: rgba(0, 0, 0, 0.15);
+$color-crater: rgba(105, 105, 139, 0.4);
+
+.cloud-moon-icon {
+  --move-x: 0px;
+  --move-y: 0px;
+
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 500px;
+  transition: transform 0.3s ease;
+
+  .moon {
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, $color-moon-core 60%, $color-moon-glow 100%);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(var(--move-x), var(--move-y)) scale(1);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 15px rgba(176, 196, 222, 0.5), inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+    animation: glow 4s infinite ease-in-out;
+    z-index: 1;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: $color-crater;
+      border-radius: 50%;
+    }
+
+    &::before {
+      width: 10px;
+      height: 10px;
+      top: 15px;
+      left: 20px;
+      box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    &::after {
+      width: 8px;
+      height: 8px;
+      top: 40px;
+      left: 45px;
+      box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .crater {
+      position: absolute;
+      background: $color-crater;
+      border-radius: 50%;
+      box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .crater1 {
+      width: 6px;
+      height: 6px;
+      top: 10px;
+      left: 50px;
+    }
+
+    .crater2 {
+      width: 12px;
+      height: 12px;
+      top: 30px;
+      left: 15px;
+    }
+
+    .crater3 {
+      width: 7px;
+      height: 7px;
+      top: 50px;
+      left: 30px;
+    }
+  }
+
+  .cloud {
+    position: absolute;
+    background: $color-cloud;
+    border-radius: 100px;
+    box-shadow: 0 2px 6px $shadow-cloud;
+    opacity: 0.95;
+    transition: transform 0.3s ease;
+    z-index: 2;
+  }
+
+  .cloud1 {
+    width: 90px;
+    height: 40px;
+    left: -10px;
+    bottom: -10px;
+    transform: translate(calc(var(--move-x) * 0.5), calc(var(--move-y) * 0.5));
+    animation: drift 6s infinite ease-in-out;
+  }
+
+  .cloud2 {
+    width: 70px;
+    height: 40px;
+    left: 30px;
+    bottom: 10px;
+    transform: translate(calc(var(--move-x) * 0.3), calc(var(--move-y) * 0.3));
+    animation: drift 7s infinite ease-in-out reverse;
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      transform: translate(var(--move-x), var(--move-y)) scale(1);
+      box-shadow: 0 0 15px rgba(176, 196, 222, 0.5), inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      transform: translate(var(--move-x), var(--move-y)) scale(1.05);
+      box-shadow: 0 0 20px rgba(176, 196, 222, 0.7), inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  @keyframes drift {
+    0%, 100% {
+      transform: translate(calc(var(--move-x) * 0.5), calc(var(--move-y) * 0.5)) translateX(0);
+    }
+    50% {
+      transform: translate(calc(var(--move-x) * 0.5), calc(var(--move-y) * 0.5)) translateX(8px);
+    }
+  }
+}

@@ -1,5 +1,22 @@
 @import '../../styles/variables';
 //style dla tablei z pogodą na 7 dni
+// Default to light theme
+:root {
+  --primary-bg: #{$primary-bg};
+  --secondary-bg: #{$secondary-bg};
+  --primary-text: #{$primary-text};
+  --secondary-text: #{$secondary-text};
+  --border-color: #{$border-color};
+}
+
+[data-theme="dark"] {
+  --primary-bg: #{$dark-primary-bg};
+  --secondary-bg: #{$dark-secondary-bg};
+  --primary-text: #{$dark-primary-text};
+  --secondary-text: #{$dark-secondary-text};
+  --border-color: #{$dark-border-color};
+}
+
 .weather-table-container {
   overflow-x: auto;
   padding: 1rem;
@@ -9,14 +26,14 @@
   width: 100%;
   border-collapse: collapse;
   text-align: center;
-  background-color: $secondary-bg;
+  background-color: var(--secondary-bg);
   box-shadow: $box-shadow;
   border-radius: 8px;
   overflow: hidden;
 
   th, td {
     padding: 1rem 0.5rem;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--border-color);
     vertical-align: middle;
   }
 
@@ -29,21 +46,23 @@
   tbody tr:last-child td {
       border-bottom: none;
   }
+
 //etykiety Pogoda , Temperatura Max/Min, Energia Słoneczna
   .row-header {
     text-align: left;
     padding-left: 1rem;
     font-weight: 600;
-    color: $primary-text;
-    background-color: #f8f9fa;
+    color:  var(--primary-text);
+    background-color:  color-mix(in srgb, var(--primary-bg) 90%, black 5%);
     white-space: nowrap; // Zapobiega łamaniu tekstu etykiety
   }
+  
   
   //pusty prawy górny róg tabeli
  .corner-header {
     background-color: transparent;
-    border-bottom: 1px solid $border-color;
-    border-right: 1px solid $border-color;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
   }
 
   .weather-icon {
@@ -54,13 +73,13 @@
     display: block;
     font-size: 1.2rem;
     font-weight: bold;
-    color: $primary-text;
+    color:  var(--primary-text);
   }
   
   .temp-min {
     display: block;
     font-size: 1rem;
-    color: $secondary-text;
+    color:  var(--secondary-tex);
   }
   
   .energy-value {

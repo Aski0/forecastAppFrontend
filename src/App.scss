@@ -2,8 +2,8 @@
 
 body {
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
-  background-color: $primary-bg;
-  color: $primary-text;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -37,7 +37,7 @@ body {
 }
 
 .description {
-  color: $secondary-text;
+  color: var(--secondary-text);
   margin-bottom: 1.5rem;
 }
 //kolumna z mapą
@@ -84,12 +84,46 @@ body {
     background-color: darken($accent-color, 10%);
   }
 }
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  font-size: 1.2rem;
+  color: white;
+  background-color: $accent-color;
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    background-color: darken($accent-color, 8%);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
 //style ładowań oraz błędów
 .loading, .error {
   text-align: center;
   font-size: 1.5rem;
   margin-top: 5rem;
-  color: $secondary-text;
+  color: var(--secondary-text);
 }
 
 .error {
@@ -100,7 +134,7 @@ body {
 .footer-summary {
   width: 100vw;
   margin-left: calc(-1 * (100vw - 100%) / 2);
-  background-color: $footer-bg;
+  background-color: var(--secondary-bg);
   padding: 1rem;
   box-sizing: border-box;
   margin-top: auto;
